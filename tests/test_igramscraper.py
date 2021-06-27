@@ -72,12 +72,12 @@ class TestIgramscraper(unittest.TestCase):
         self.assertEqual(9, len(medias))
 
     def test_get_location_medias_by_id(self):
-        medias = self.instagram.get_medias_by_location_id(1, 56)
+        medias = self.instagram.get_medias_by_location_id(213274369, 56)
         self.assertEqual(56, len(medias))
 
     def test_get_location_by_id(self):
-        location = self.instagram.get_location_by_id(1)
-        self.assertEqual('Dog Patch Labs', location.name)
+        location = self.instagram.get_location_by_id(213274369)
+        self.assertEqual('Hyderabad', location.name)
 
     def test_get_id_from_code(self):
         code = Media.get_code_from_id('1270593720437182847')

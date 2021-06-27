@@ -43,7 +43,7 @@ request_media_count = 30
 
 
 def get_account_page_link(username):
-    print(ACCOUNT_PAGE % urllib.parse.quote_plus(username))
+    # print(ACCOUNT_PAGE % urllib.parse.quote_plus(username))
     return ACCOUNT_PAGE % urllib.parse.quote_plus(username)
 
 
@@ -70,7 +70,7 @@ def get_media_json_link(code):
 
 
 def get_medias_json_by_location_id_link(facebook_location_id, max_id=''):
-    print(MEDIA_JSON_BY_LOCATION_ID % (urllib.parse.quote_plus(str(facebook_location_id)), urllib.parse.quote_plus(max_id)))
+    # print(MEDIA_JSON_BY_LOCATION_ID % (urllib.parse.quote_plus(str(facebook_location_id)), urllib.parse.quote_plus(max_id)))
     return MEDIA_JSON_BY_LOCATION_ID % (urllib.parse.quote_plus(str(facebook_location_id)), urllib.parse.quote_plus(max_id))
 
 

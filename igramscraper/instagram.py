@@ -642,7 +642,7 @@ class Instagram:
         medias = []
 
         nodes = \
-            json_response['graphql']['hashtag']['edge_hashtag_to_top_posts'][
+            json_response['data']['hashtag']['edge_hashtag_to_top_posts'][
                 'edges']
 
         for media_array in nodes:
@@ -812,7 +812,7 @@ class Instagram:
 
         json_response = response.json()
 
-        return Location(json_response['graphql']['location'])
+        return Location(json_response['native_location_data']['location_info'])
 
     def get_media_likes_by_code(self, code, count=10, max_id=None):
         """
