@@ -49,7 +49,7 @@ class TestIgramscraper(unittest.TestCase):
         self.assertEqual(100, len(medias))
 
     def test_get_medias_by_tag(self):
-        medias = self.instagram.get_medias_by_tag('youneverknow', 20)
+        medias = self.instagram.get_medias_by_tag('computerscience', count = 20)
         self.assertEqual(20, len(medias))
 
     def test_get_medias_by_code(self):

@@ -539,11 +539,11 @@ class Instagram:
             arr = response.json()
 
             try:
-                arr['graphql']['hashtag']['edge_hashtag_to_media']['count']
+                arr['data']['hashtag']['edge_hashtag_to_media']['count']
             except KeyError:
                 return []
 
-            nodes = arr['graphql']['hashtag']['edge_hashtag_to_media']['edges']
+            nodes = arr['data']['hashtag']['edge_hashtag_to_media']['edges']
             for media_array in nodes:
                 if index == count:
                     return medias
@@ -1251,6 +1251,12 @@ class Instagram:
                                              response.status_code)
 
         user_array = Instagram.extract_shared_data_from_body(response.text)
+
+        # a_dictionary = user_array`
+        # file = open("sample.txt", "w")
+        # str_dictionary = repr(a_dictionary)
+        # file.write("a_dictionary = " + str_dictionary + "\n")
+        # file.close()
 
         if user_array['entry_data']['ProfilePage'][0]['graphql']['user'] is None:
             raise InstagramNotFoundException(

@@ -14,7 +14,7 @@ ACCOUNT_TAGGED_MEDIAS = 'https://www.instagram.com/graphql/query/?query_hash=ff2
 ACCOUNT_JSON_INFO = 'https://www.instagram.com/%s/?__a=1'
 MEDIA_JSON_INFO = 'https://www.instagram.com/p/%s/?__a=1'
 MEDIA_JSON_BY_LOCATION_ID = 'https://www.instagram.com/explore/locations/%s/?__a=1&max_id=%s'
-MEDIA_JSON_BY_TAG = 'https://www.instagram.com/explore/tags/%s/?__a=1&max_id=%s'
+MEDIA_JSON_BY_TAG = 'https://www.instagram.com/graphql/query/?query_hash=bd33792e9f52a56ae8fa0985521d141d&variables={"tag_name":"%s","first":12,"after":"%s"}'
 GENERAL_SEARCH = 'https://www.instagram.com/web/search/topsearch/?query=%s'
 COMMENTS_BEFORE_COMMENT_ID_BY_CODE = 'https://www.instagram.com/graphql/query/?query_hash=97b41c52301f77ce508f55e66d17620e&variables=%s'
 COMMENTS_BEFORE_COMMENT_ID_BY_CODE2 = 'https://www.instagram.com/graphql/query/?query_hash=bc3296d1ce80a24b1b6e40b1e72903f5&variables=%s'
@@ -43,6 +43,7 @@ request_media_count = 30
 
 
 def get_account_page_link(username):
+    print(ACCOUNT_PAGE % urllib.parse.quote_plus(username))
     return ACCOUNT_PAGE % urllib.parse.quote_plus(username)
 
 
@@ -69,6 +70,7 @@ def get_media_json_link(code):
 
 
 def get_medias_json_by_location_id_link(facebook_location_id, max_id=''):
+    print(MEDIA_JSON_BY_LOCATION_ID % (urllib.parse.quote_plus(str(facebook_location_id)), urllib.parse.quote_plus(max_id)))
     return MEDIA_JSON_BY_LOCATION_ID % (urllib.parse.quote_plus(str(facebook_location_id)), urllib.parse.quote_plus(max_id))
 
 
