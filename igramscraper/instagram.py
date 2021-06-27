@@ -1252,16 +1252,23 @@ class Instagram:
 
         user_array = Instagram.extract_shared_data_from_body(response.text)
 
-        # a_dictionary = user_array`
-        # file = open("sample.txt", "w")
-        # str_dictionary = repr(a_dictionary)
-        # file.write("a_dictionary = " + str_dictionary + "\n")
-        # file.close()
-
+        # print("viewer ID:  ")
+        # try:
+        #     print(user_array['config']['viewer']['id'])
+        # except:
+        #     print("viewer is none")
+        # print("viewing fb ID: ")
+        # try:
+        #     print(user_array['entry_data']['ProfilePage'][0]['graphql']['user']['fbid'])
+        # except:
+        #     print("could not load info")
+        if user_array['config']['viewer'] is None:
+            raise InstagramAuthException(
+                'Please Login Again and try')
         if user_array['entry_data']['ProfilePage'][0]['graphql']['user'] is None:
             raise InstagramNotFoundException(
                 'Account with this username does not exist')
-
+        
         return Account(
             user_array['entry_data']['ProfilePage'][0]['graphql']['user'])
 
